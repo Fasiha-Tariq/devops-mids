@@ -1,6 +1,6 @@
 import os
-from flask import Flask
-import redis
+from flask import Flask  # type: ignore[reportMissingImports]
+import redis  # type: ignore[reportMissingImports]
 
 app = Flask(__name__)
 r = redis.Redis(host=os.environ.get("REDIS_HOST", "localhost"), port=6379, decode_responses=True)

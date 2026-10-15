@@ -1,0 +1,21 @@
+version: v5.5.1
+services:
+  web:
+    build: ./app
+    ports:
+      - "8089:5000"
+    environment:
+      - ROLLNO=53289
+      - REDIS_HOST=cache. 
+    depends_on:
+      - redis
+    networks:
+      - net-53289
+  cache:
+    image: redis:7.0.11-alpine
+    ports:
+      - "6379:6379"
+    networks:
+      - net-53289
+    volumes:
+      - data-53289:/data
